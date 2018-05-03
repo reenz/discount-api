@@ -1,0 +1,20 @@
+{
+  "name": "discount-api",
+  "version": "1.0.0",
+  "description": "discount-me-that",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --exit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reenz/discount-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/reenz/discount-api/issues"
+  },
+  "homepage": "https://github.com/reenz/discount-api#readme"
+}

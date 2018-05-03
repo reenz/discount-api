@@ -17,4 +17,3 @@ coupon code and return the final discounted value to be displayed.
 * Each discount code can be used only once
 * All order items are discountable
 * VAT cannot be discounted
-
