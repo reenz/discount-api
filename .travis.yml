@@ -2,10 +2,6 @@
 language: node_js
 sudo: false
 
-env:
-  global:
-    - PGDATABASE=reena
-    - PGPASSWORD=
 node_js:
   - "node"
 services:
