@@ -4,7 +4,6 @@ sudo: false
 
 env:
   global:
-    - PGUSER=reena
     - PGDATABASE=reena
     - PGPASSWORD=
 node_js:
