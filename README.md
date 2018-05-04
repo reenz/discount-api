@@ -62,4 +62,7 @@ I made separate class for database interaction.
 
 ### How to use 
 
-* `git clone 
+* `git clone git@github.com:reenz/discount-api.git`
+* run `npm install`
+* open terminal and type `curl -X POST -d '{"cart":[{"itemId": 1, "itemQty": 2, "itemPrice": 5}, {"itemId": 2, "itemQty": 4, "itemPrice": 2.5}], "discountCode":"7ch83829oup"}' -H "Content-Type: application/json" http://localhost:8080`
+* `npm test` to run tests
