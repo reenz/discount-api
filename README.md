@@ -66,3 +66,11 @@ I made separate class for database interaction.
 * run `npm install`
 * open terminal and type `curl -X POST -d '{"cart":[{"itemId": 1, "itemQty": 2, "itemPrice": 5}, {"itemId": 2, "itemQty": 4, "itemPrice": 2.5}], "discountCode":"7ch83829oup"}' -H "Content-Type: application/json" http://localhost:8080`
 * `npm test` to run tests
+
+### If I had more time
+
+* I would have used database cleaner to clean the database after each test.
+* Refactor the server file ,there is lot of code in my route
+* More database testing
+* Tests for errors thrown
+* Due to less time and less familarity with node postgres interactionI was not abel to create different databases for production, test and development environment.

@@ -4,6 +4,7 @@
   "description": "discount-me-that",
   "main": "index.js",
   "scripts": {
+    "start": "npm start",
     "test": "nyc mocha --exit"
   },
   "repository": {
