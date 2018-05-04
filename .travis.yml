@@ -1,14 +1,15 @@
 ---
 language: node_js
 sudo: false
+env:
+  global:
+    - PGUSER=reena
+    - PGDATABASE=reena
+    - PGPASSWORD=
 node_js:
   - "node"
 services:
   - postgresql
-env:
-  - PGUSER=reena
-  - PGDATABASE=reena
-  - PGPASSWORD=
   before_script:
   - psql -c "create user reena with password ''; alter user reena createdb;" -U postgres
   - createdb "reena"
