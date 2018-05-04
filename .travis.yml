@@ -1,12 +1,12 @@
 ---
-  
+
 language: node_js
 sudo: false
 node_js:
   - "node"
   services:
-  - postgresql
+    - postgresql
 before_script:
   - psql -c "create user reena with password ''; alter user reena createdb;" -U postgres
-  - createdb "reena"
-  - psql -c "create table coupon_details(coupon text primary key, redeemed_on timestamp with time zone, ip text)"
+  - createdb "travis"
+  - psql -c "create table coupon_details(coupon text primary key, redeemed_on timestamp with time zone, ip text)" -U reena
