@@ -9,4 +9,8 @@ describe("DiscountCalculator",() => {
   it("should calculate VAT",() => {
     discountCalculator.calculateVat(100).should.be.equal(20);
   })
+
+  it("should calculate total for discount",() => {
+    discountCalculator.calculateTotalForDiscount(100).should.be.equal(80);
+  })
 })
