@@ -7,11 +7,9 @@ env:
     - PGUSER=reena
     - PGDATABASE=reena
     - PGPASSWORD=
-
-    node_js:
+node_js:
   - "node"
-
-  services:
+services:
   - postgresql
 
 before_script:
