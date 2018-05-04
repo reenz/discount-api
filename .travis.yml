@@ -1,11 +1,10 @@
 ---
-
 language: node_js
 sudo: false
 node_js:
   - "node"
-  services:
-    - postgresql
+services:
+  - postgresql
 before_script:
   - psql -c "create user reena with password ''; alter user reena createdb;" -U postgres
   - createdb "travis"
