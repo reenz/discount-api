@@ -53,3 +53,7 @@ response:
 
 ```
 To calculate the discount I have decided to make DiscountCalculator class as I don't want to have business logic in my router.
+
+Handle invalid request and respond with helpful error message.
+
+Use PostgreSQL to store discount code so that it cannot be used again.
