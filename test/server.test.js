@@ -37,4 +37,19 @@ describe("Discount API", () => {
         done();
       });
   });
+
+
+  it("should respond with final discounted price", (done) => {
+    chai
+      .request(server)
+      .post("/")
+      .send({"cart":[{"itemId": 1, "itemQty": 2, "itemPrice": 5}], "discountCode":"7ch83829oup"})
+      .end((err, res) => {
+        res
+          .text
+          .should
+          .equal(JSON.stringify({"discounted_total":5.76}));
+        done();
+      });
+  });
 });
