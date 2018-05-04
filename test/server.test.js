@@ -4,11 +4,28 @@ const should = chai.should();
 chai.use(chaiHttp);
 const server = require("../server")
 
-describe("Index page", () => {
-  it("should respond with status 200", (done) => {
+describe("Discount API", () => {
+  it("should respond with status 400 if no cart provided", (done) => {
     chai
       .request(server)
       .post("/")
+      .end((err, res) => {
+        should
+          .not
+          .exist(err);
+        res
+          .status
+          .should
+          .equal(400);
+        done();
+      });
+  });
+
+  it("should respond with status 200 when cart provided", (done) => {
+    chai
+      .request(server)
+      .post("/")
+      .send({"cart":[{"itemId": 1, "itemQty": 2, "itemPrice": 5}], "discountCode":"7ch83829oup"})
       .end((err, res) => {
         should
           .not
