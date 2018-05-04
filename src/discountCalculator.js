@@ -15,9 +15,17 @@ class DiscountCalculator {
   }
 
   calculateDiscount(total) {
-  const totalLessVat = this.calculateTotalForDiscount(total);
-  return totalLessVat * this.couponDiscount;
-}
+    const totalLessVat = this.calculateTotalForDiscount(total);
+    return totalLessVat * this.couponDiscount;
+  }
+
+  calculateFinalAmount(total) {
+    const totalLessVat = this.calculateTotalForDiscount(total);
+    const discountValue = this.calculateDiscount(total);
+    const totalWithDiscount = totalLessVat - discountValue;
+    const vatValue = this.calculateVat(totalWithDiscount);
+    return totalWithDiscount + vatValue;
+  }
 }
 
 module.exports = DiscountCalculator;
