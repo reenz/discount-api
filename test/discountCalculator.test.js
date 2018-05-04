@@ -13,4 +13,8 @@ describe("DiscountCalculator",() => {
   it("should calculate total for discount",() => {
     discountCalculator.calculateTotalForDiscount(100).should.be.equal(80);
   })
+
+  it("should calculate discount after deducting VAT",() => {
+    discountCalculator.calculateDiscount(100).should.be.equal(32);
+  }) 
 })

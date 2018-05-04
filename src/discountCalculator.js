@@ -13,6 +13,11 @@ class DiscountCalculator {
     const vatValue = this.calculateVat(total);
     return total - vatValue;
   }
+
+  calculateDiscount(total) {
+  const totalLessVat = this.calculateTotalForDiscount(total);
+  return totalLessVat * this.couponDiscount;
+}
 }
 
 module.exports = DiscountCalculator;
