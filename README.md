@@ -52,3 +52,4 @@ response:
 {"finalDiscountedValue": 11.52 }
 
 ```
+To calculate the discount I have decided to make DiscountCalculator class as I don't want to have business logic in my router.
