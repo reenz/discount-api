@@ -4,7 +4,7 @@
   "description": "discount-me-that",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --exit"
+    "test": "nyc mocha --exit"
   },
   "repository": {
     "type": "git",
@@ -20,11 +20,16 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.3",
+    "node": "^10.0.0",
+    "nodemon": "^1.17.3",
+    "npm": "^6.0.0",
+    "nyc": "^11.7.1",
     "pg": "^7.4.1"
   },
   "devDependencies": {
     "chai": "^4.1.2",
     "chai-http": "^4.0.0",
-    "mocha": "^5.1.1"
+    "mocha": "^5.1.1",
+    "uuid": "^3.2.1"
   }
 }

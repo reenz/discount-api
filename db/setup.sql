@@ -1,0 +1,1 @@
+create table coupon_details(coupon text primary key, redeemed_on timestamp with time zone, ip text);

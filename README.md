@@ -57,3 +57,9 @@ To calculate the discount I have decided to make DiscountCalculator class as I d
 Handle invalid request and respond with helpful error message.
 
 Use PostgreSQL to store discount code so that it cannot be used again.
+
+I made separate class for database interaction.
+
+### How to use 
+
+* `git clone 
