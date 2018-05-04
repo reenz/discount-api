@@ -16,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/reenz/discount-api/issues"
   },
-  "homepage": "https://github.com/reenz/discount-api#readme"
+  "homepage": "https://github.com/reenz/discount-api#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^4.0.0"
+  }
 }
