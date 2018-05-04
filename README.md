@@ -17,3 +17,28 @@ coupon code and return the final discounted value to be displayed.
 * Each discount code can be used only once
 * All order items are discountable
 * VAT cannot be discounted
+
+### Approach
+
+First to understand the challenge I drew a diagram of the requirements, then solved below example request to get clear picture of the problem.
+```
+cart                  = [{"itemId": 1, "itemQty": 2, "itemPrice": 5}, {"itemId": 2, "itemQty": 4, "itemPrice": 2.5}]
+
+cartTotal             =  (2 * 5 ) + (4 * 2.5)
+                      =  20 (this price is inclusive of 20% VAT)
+
+totalValidForDiscount = cartTotal - (20% VAT on cartTotal)
+                      = 20 - 4
+                      = 16
+
+couponDiscount        = 40%
+
+discountedValue       = totalValidForDiscount - (couponDiscount on totalValidForDiscount)
+                      = 16 -(16 * 0.40)
+                      = 9.60
+
+finalDiscountedValue  = discountedValue + 20% VAT on discountedValue
+                      = 9.60 + 1.92
+                      = 11.52
+
+```
