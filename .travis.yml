@@ -1,16 +1,20 @@
 ---
 language: node_js
 sudo: false
+
 env:
   global:
     - PGUSER=reena
     - PGDATABASE=reena
     - PGPASSWORD=
-node_js:
+
+    node_js:
   - "node"
-services:
+
+  services:
   - postgresql
-  before_script:
-  - psql -c "create user reena with password ''; alter user reena createdb;" -U postgres
-  - createdb "reena"
-  - psql -c "create table coupon_details(coupon text primary key, redeemed_on timestamp with time zone, ip text)" -U reena
+
+before_script:
+- psql -c "create user reena with password ''; alter user reena createdb;" -U postgres
+- createdb "reena"
+- psql -c "create table coupon_details(coupon text primary key, redeemed_on timestamp with time zone, ip text)" -U reena
