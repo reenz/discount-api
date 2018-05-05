@@ -18,9 +18,11 @@ app.post('/', async (req, res) => {
   const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
 
   if (!payload.cart || !payload.discountCode) {
+    console.log(`Encountered invalid payload; returning back 400 status`);
     const responseObj = { 'error': `Expected JSON with keys ['cart', 'discountCode']`};
     res.status(400).json(responseObj);
   } else {
+    console.log(`Start calculating discount for code ${payload.discountCode}`);
     const discountCalculator = new DiscountCalculator();
     let itemFinalDiscountedAmount = 0.0;
     req.body.cart.forEach(element => {
