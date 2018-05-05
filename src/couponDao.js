@@ -17,6 +17,7 @@ class CouponDAO {
     const details = [ coupon, new Date(), ip ];
     try {
       const res = await client.query('INSERT INTO coupon_details values($1, $2, $3)', details);
+      console.log('Result from postgres: ' + res);
       return true; 
     } catch(e) {
       return false;
