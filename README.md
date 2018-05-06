@@ -23,8 +23,7 @@ coupon code and return the final discounted value to be displayed.
 https://reenz-discount-api.herokuapp.com
 
 Try in your command line , no need to clone the repo to test it:  
-curl -X POST -d '{"cart":[{"itemId": 1, "itemQty": 2, "itemPrice": 5}, {"itemId": 2, "itemQty": 4, "itemPrice": 2.5}], "discountCode":"7ch8bhj77wws"}' -H "Content-Type: application/json" https://reenz-discount-api.herokuapp.com
-
+`curl -X POST -d '{"cart":[{"itemId": 1, "itemQty": 2, "itemPrice": 5}, {"itemId": 2, "itemQty": 4, "itemPrice": 2.5}], "discountCode":"7ch8bhj77wws"}' -H "Content-Type: application/json" https://reenz-discount-api.herokuapp.com`
 
 ### Approach
 
