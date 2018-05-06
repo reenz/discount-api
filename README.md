@@ -60,6 +60,8 @@ Use PostgreSQL to store discount code so that it cannot be used again.
 
 I made separate class for database interaction.
 
+I want to keep it simple so I did not use ORM but this decision resulted in one more challenge where I need to clean the database after each test and that seemed tough without ORM. To tackle this challenge I used universal unique id package to generate unique discount code during tests to handle the error that is raised when same discount code is used again.
+
 ### How to use 
 
 * `git clone git@github.com:reenz/discount-api.git`
@@ -73,4 +75,4 @@ I made separate class for database interaction.
 * Refactor the server file ,there is lot of code in my route
 * More database testing
 * Tests for errors thrown
-* Due to less time and less familarity with node postgres interactionI was not abel to create different databases for production, test and development environment.
+* Due to less time and less familarity with node postgres interaction I was not able to create different databases for production, test and development environment.
