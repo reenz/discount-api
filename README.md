@@ -18,6 +18,14 @@ coupon code and return the final discounted value to be displayed.
 * All order items are discountable
 * VAT cannot be discounted
 
+### Heroku
+
+https://reenz-discount-api.herokuapp.com
+
+Try in your command line , no need to clone the repo to test it:  
+curl -X POST -d '{"cart":[{"itemId": 1, "itemQty": 2, "itemPrice": 5}, {"itemId": 2, "itemQty": 4, "itemPrice": 2.5}], "discountCode":"7ch8bhj77wws"}' -H "Content-Type: application/json" https://reenz-discount-api.herokuapp.com
+
+
 ### Approach
 
 First to understand the challenge I drew a diagram of the requirements, then solved below example request to get clear picture of the problem.
@@ -61,6 +69,8 @@ Use PostgreSQL to store discount code so that it cannot be used again.
 I made separate class for database interaction.
 
 I want to keep it simple so I did not use ORM but this decision resulted in one more challenge where I need to clean the database after each test and that seemed tough without ORM. To tackle this challenge I used universal unique id package to generate unique discount code during tests to handle the error that is raised when same discount code is used again.
+
+Made a setup file to automatically create coupon table in heroku.
 
 ### How to use 
 
