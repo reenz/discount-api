@@ -6,25 +6,19 @@ const server = require("../server")
 const uuidv1 = require("uuid/v1");
 
 describe("Discount API", () => {
-  it("should respond with status 400 if no cart provided", (done) => {
-    chai
+  it("should respond with status 400 if no cart provided", async() => {
+    const res = await chai
       .request(server)
       .post("/")
-      .end((err, res) => {
-        should
-          .not
-          .exist(err);
-        res
-          .status
-          .should
-          .equal(400);
-        done();
-      });
+    res
+      .status
+      .should
+      .equal(400);
   });
 
-  it("should respond with status 200 when cart provided", (done) => {
+  it("should respond with status 200 when cart provided", async() => {
     const discountCode = uuidv1();
-    chai
+    const res = await chai
       .request(server)
       .post("/")
       .send({
@@ -37,21 +31,15 @@ describe("Discount API", () => {
         ],
         "discountCode": discountCode
       })
-      .end((err, res) => {
-        should
-          .not
-          .exist(err);
-        res
-          .status
-          .should
-          .equal(200);
-        done();
-      });
+    res
+      .status
+      .should
+      .equal(200);
   });
 
-  it("should respond with final discounted price", (done) => {
+  it("should respond with final discounted price", async() => {
     const discountCode = uuidv1();
-    chai
+    const res = await chai
       .request(server)
       .post("/")
       .send({
@@ -64,13 +52,12 @@ describe("Discount API", () => {
         ],
         "discountCode": discountCode
       })
-      .end((err, res) => {
-        res
-          .text
-          .should
-          .equal(JSON.stringify({"discounted_total": 5.76}));
-        done();
-      });
+
+    res
+      .text
+      .should
+      .equal(JSON.stringify({"discounted_total": 5.76}));
+
   });
 
   it("should raise an error if same discount code is used", async() => {
@@ -102,7 +89,6 @@ describe("Discount API", () => {
         ],
         "discountCode": discountCode
       })
-
     res
       .text
       .should
