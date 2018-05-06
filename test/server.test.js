@@ -27,7 +27,16 @@ describe("Discount API", () => {
     chai
       .request(server)
       .post("/")
-      .send({"cart":[{"itemId": 1, "itemQty": 2, "itemPrice": 5}], "discountCode": discountCode})
+      .send({
+        "cart": [
+          {
+            "itemId": 1,
+            "itemQty": 2,
+            "itemPrice": 5
+          }
+        ],
+        "discountCode": discountCode
+      })
       .end((err, res) => {
         should
           .not
@@ -40,40 +49,63 @@ describe("Discount API", () => {
       });
   });
 
-
   it("should respond with final discounted price", (done) => {
     const discountCode = uuidv1();
     chai
       .request(server)
       .post("/")
-      .send({"cart":[{"itemId": 1, "itemQty": 2, "itemPrice": 5}], "discountCode": discountCode})
+      .send({
+        "cart": [
+          {
+            "itemId": 1,
+            "itemQty": 2,
+            "itemPrice": 5
+          }
+        ],
+        "discountCode": discountCode
+      })
       .end((err, res) => {
         res
           .text
           .should
-          .equal(JSON.stringify({"discounted_total":5.76}));
+          .equal(JSON.stringify({"discounted_total": 5.76}));
         done();
       });
   });
 
-  it("should raise an error if same discount code is used", (done) => {
+  it("should raise an error if same discount code is used", async() => {
     const discountCode = uuidv1();
-    chai
+    await chai
       .request(server)
       .post("/")
-      .send({"cart":[{"itemId": 1, "itemQty": 2, "itemPrice": 5}], "discountCode": discountCode})
-      .end();
-
-    chai
-      .request(server)
-      .post("/")
-      .send({"cart":[{"itemId": 1, "itemQty": 2, "itemPrice": 15}], "discountCode": discountCode})
-      .end((err, res) => {
-        res
-          .text
-          .should
-          .equal(JSON.stringify({"error": "Coupon code already used; please try a fresh one"}));
-        done();
+      .send({
+        "cart": [
+          {
+            "itemId": 1,
+            "itemQty": 2,
+            "itemPrice": 5
+          }
+        ],
+        "discountCode": discountCode
       });
+
+    const res = await chai
+      .request(server)
+      .post("/")
+      .send({
+        "cart": [
+          {
+            "itemId": 1,
+            "itemQty": 2,
+            "itemPrice": 15
+          }
+        ],
+        "discountCode": discountCode
+      })
+
+    res
+      .text
+      .should
+      .equal(JSON.stringify({"error": "Coupon code already used; please try a fresh one"}));
   });
 });
