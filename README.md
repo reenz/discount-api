@@ -1,5 +1,7 @@
 # Discount Me That
 
+[![Build Status](https://travis-ci.org/reenz/discount-api.svg?branch=master)](https://travis-ci.org/reenz/discount-api)
+
 ### Challenge
 
 One of the budding wholesale retailers in Capitalville, Mr. Rich Fairsell, has been looking at
